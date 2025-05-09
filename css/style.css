@@ -84,7 +84,7 @@ p {
 }
 
 img {
-	max-width: 100%;
+	max-width: 80%;
 }
 
 input:focus,
@@ -1257,7 +1257,7 @@ ol {
 -----------------------*/
 
 .footer {
-	padding-top: 90px;
+	padding-top: 0px;
 }
 
 .footer__top {
