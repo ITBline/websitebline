@@ -184,4 +184,38 @@
         });
     });
 
+    /*------------------
+        Load More
+    --------------------*/
+  const loadMoreBtn = document.getElementById("load-more");
+  const gallery = document.getElementById("photo-gallery");
+
+  // Data gambar tambahan (bisa juga diambil dari server via AJAX)
+  const additionalPhotos = [
+    "foto3.jpg", // <====== Tambahan Load More //
+    "foto4.jpg", // <====== Tambahan Load More //
+    "foto5.jpg" // <====== Tambahan Load More //
+  ];
+
+  let currentIndex = 0;
+
+  loadMoreBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // mencegah reload
+
+    // Tambahkan 1 foto per klik (bisa diubah jumlahnya)
+    if (currentIndex < additionalPhotos.length) {
+      const img = document.createElement("img");
+      img.src = additionalPhotos[currentIndex];
+      img.alt = `Foto ${currentIndex + 3}`;
+      gallery.appendChild(img);
+      currentIndex++;
+    } else {
+      // Semua foto sudah dimuat
+      loadMoreBtn.textContent = "No More Photos";
+      loadMoreBtn.disabled = true;
+      loadMoreBtn.style.pointerEvents = "none";
+      loadMoreBtn.style.opacity = 0.6;
+    }
+  });
+
 })(jQuery);
